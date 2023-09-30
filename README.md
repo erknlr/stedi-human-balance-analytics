@@ -37,7 +37,7 @@ Purpose of this layer is to filter out certain data. Here we are using following
 
 customer_landing_to_trusted.py - Here, we take the raw customer data and basically filter for only customers who agreed to share their data for research purposes. 
 
-accelerometer_landing_to_trusted_zone.py - Here, we are filtering for accelerometer data of the customers who agreed to share their data for research purposes. For this purpose, we join raw accelerometer data to the putput we created above (customer_trusted)
+(accelerometer_landing_to_trusted_zone.py)[https://github.com/erknlr/stedi-human-balance-analytics/blob/main/Glue%20Jobs/accelerometer_landing_to_trusted_zone.py] - Here, we are filtering for accelerometer data of the customers who agreed to share their data for research purposes. For this purpose, we join raw accelerometer data to the putput we created above (customer_trusted)
 
 step_trainer_landing_to_trusted.py - This script takes the raw step trainer data and filters for customers who have accelerometer data and have agreed to share their data for research purposes. For this purpose, we use the output customer_curated that we are creating in the curated layer.  
 
