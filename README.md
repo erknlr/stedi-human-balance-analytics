@@ -35,17 +35,17 @@ Here we are basically storing the raw data from customer, accelerometer and step
 ### Trusted
 Purpose of this layer is to filter out certain data. Here we are using following Glue jobs:
 
-customer_landing_to_trusted.py - Here, we take the raw customer data and basically filter for only customers who agreed to share their data for research purposes. 
+customer_landing_to_trusted.py [https://github.com/erknlr/stedi-human-balance-analytics/blob/main/Glue%20Jobs/customer_landing_to_trusted.py] - Here, we take the raw customer data and basically filter for only customers who agreed to share their data for research purposes. 
 
-(accelerometer_landing_to_trusted_zone.py)[https://github.com/erknlr/stedi-human-balance-analytics/blob/main/Glue%20Jobs/accelerometer_landing_to_trusted_zone.py] - Here, we are filtering for accelerometer data of the customers who agreed to share their data for research purposes. For this purpose, we join raw accelerometer data to the putput we created above (customer_trusted)
+accelerometer_landing_to_trusted_zone.py [https://github.com/erknlr/stedi-human-balance-analytics/blob/main/Glue%20Jobs/accelerometer_landing_to_trusted_zone.py] - Here, we are filtering for accelerometer data of the customers who agreed to share their data for research purposes. For this purpose, we join raw accelerometer data to the putput we created above (customer_trusted)
 
-step_trainer_landing_to_trusted.py - This script takes the raw step trainer data and filters for customers who have accelerometer data and have agreed to share their data for research purposes. For this purpose, we use the output customer_curated that we are creating in the curated layer.  
+step_trainer_landing_to_trusted.py [https://github.com/erknlr/stedi-human-balance-analytics/blob/main/Glue%20Jobs/step_trainer_landing_to_trusted.py] - This script takes the raw step trainer data and filters for customers who have accelerometer data and have agreed to share their data for research purposes. For this purpose, we use the output customer_curated that we are creating in the curated layer.  
 
 ### Curated
 Here we are performing further transformations to make data suitable for different purposes (like machine learning). For this purpose, we are using following Glue jobs:
 
-customer_trusted_to_curated.py - Here, we are taking the customer_trusted output and narrow it down to only to those who have some accelerometer readings. We do this by joining customer_trusted output to raw accelerometer data. 
+customer_trusted_to_curated.py [https://github.com/erknlr/stedi-human-balance-analytics/blob/main/Glue%20Jobs/customer_trusted_to_curated.py] - Here, we are taking the customer_trusted output and narrow it down to only to those who have some accelerometer readings. We do this by joining customer_trusted output to raw accelerometer data. 
 
-step_trainer_trusted_to_curated.py - Here, we are building an output that combines step trainer data with accelerometer data with the same timestamp for those customers who agreed to share their data for research purposes. 
+machine_learning_curated.py [https://github.com/erknlr/stedi-human-balance-analytics/blob/main/Glue%20Jobs/machine_learning_curated.py] - Here, we are building an output that combines step trainer data with accelerometer data with the same timestamp for those customers who agreed to share their data for research purposes. 
 
 
